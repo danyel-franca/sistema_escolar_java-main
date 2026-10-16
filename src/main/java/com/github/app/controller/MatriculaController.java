@@ -14,6 +14,7 @@ import com.github.app.model.professor.Professor;
 import com.github.app.model.professor.ProfessorRepository;
 
 import jakarta.transaction.Transactional;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/matriculas")
@@ -30,7 +31,7 @@ public class MatriculaController {
 
     @PostMapping
     @Transactional
-    public void cadastrar(@RequestBody DadosCadastroMatricula dados) {
+    public void cadastrar(@RequestBody @Valid DadosCadastroMatricula dados) {
         Aluno aluno = alunoRepository.getReferenceById(dados.idAluno());
         Professor professor = professorRepository.getReferenceById(dados.professorId());
         Matricula matricula = new Matricula(dados);

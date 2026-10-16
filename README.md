@@ -22,3 +22,7 @@ Dentro do meu controller "AlunoController.java", no PUT não possui o "@Transaci
 O comando "spring.jpa.hibernate.ddl-auto=none" estava impossibilitando a mudança no Banco, por ser none. Usando o "create-drop" ele altera na hora.
 
 ## Sétimo erro:
+O erro esta na classe "Aluno.java", dentro do construtor ele esta fazendo "this.ra = dados.curso();", o certo é "this.ra = dados.ra();"
+
+## Oitavo erro:
+O erro esta nos controllers, dentro dos metodos "cadastrar" eles não possuem "@Valid" para validar o cadastro

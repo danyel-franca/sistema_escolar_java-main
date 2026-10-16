@@ -14,6 +14,7 @@ import com.github.app.model.professor.Professor;
 import com.github.app.model.professor.ProfessorRepository;
 
 import jakarta.transaction.Transactional;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/professor")
@@ -24,7 +25,7 @@ public class ProfessorController {
 
     @PostMapping
     @Transactional
-    public void cadastrar(@RequestBody DadosCadastroProfessor dados) {
+    public void cadastrar(@RequestBody  @Valid DadosCadastroProfessor dados) {
         repository.save(new Professor(dados));
     }
 

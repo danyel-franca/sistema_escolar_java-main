@@ -14,6 +14,7 @@ import com.github.app.model.aluno.DadosListagemAluno;
 import com.github.app.model.aluno.Aluno;
 
 import jakarta.transaction.Transactional;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/alunos")
@@ -24,7 +25,7 @@ public class AlunoController {
 
     @PostMapping
     @Transactional
-    public void cadastrar(@RequestBody DadosCadastroAluno dados) {
+    public void cadastrar(@RequestBody @Valid DadosCadastroAluno dados) {
         repository.save(new Aluno(dados));
     }
 
